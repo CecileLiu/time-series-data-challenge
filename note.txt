@@ -1,0 +1,25 @@
+Dependency on Feature Interactions
+1. KNN relies on the premise that similar data points (based on feature distances) should have similar values for missing attributes. 
+2. MICE operates under the assumption that one can model each feature with missing values as a function of other features. 
+
+
+從目前的這幾篇paper來看
+1. tree-based imputation 可以達到很好的效果
+2. evaluation metrics最常見的是MAE、RMSE，Bias也可以用，其他的就是會根據實驗設定而設計的metrics
+3. 大家除了比較好不好用之外，也還會比較computation
+4. transformer-based imputation表現也很好，所以可以去看一下computation efficiency
+5. 不同imputation在不同downstream task的表現也不同
+
+
+github資源
+https://github.com/codeaway23/time-series-forecasting/blob/master/notebooks/analysis.ipynb
+https://github.com/Vikasdubey0551/EDA_and_Timeseries-forecasting_power_consumption/blob/master/TimeseriesEDA-forecasting-model-comparision.ipynb
+https://github.com/iskandr/fancyimpute/tree/master/fancyimpute
+
+
+"An introduction to spatial data ..." 
+這一本的章節安排就是在處理spatial data所必需的基礎知識
+"Python for Geospatial Data...." 如果把前一本看完的話，這本可以補充的是python技巧與基本的visualization技巧
+
+
+

@@ -1,0 +1,34 @@
+resource: https://mark1002.github.io/2018/05/27/time-series-%E4%BB%8B%E7%B4%B9%E8%88%87%E8%99%95%E7%90%86%E6%8A%80%E5%B7%A7/
+- stationary
+時間序列可以分解成以下三種特性：
+stationary: 中文譯為穩健性，表示時間序列資料的標準差以及平均值不會隨著時間推移而變化，而是保持著一個固定數值的狀態。stationary 是時間序列中非常著要的性質，有些預測的方法 (ARIMA) 根本上是基於此特性來去預測的。另一種 stationary 的說法為時序資料去除掉 Seasonality 與 trend 就會有 stationary 的性質了。
+seasonality: 表示時間序列中有相似的模式並週期性的循環出現。
+trend: 表示隨著時間的推移，時間序列有著明顯方向的增長或遞減。
+
+- ACF (autocorrelation function)
+時序資料也可以從過去幾筆間的資料來去看之間的相關性來做之後的為資料分析評估, 
+像是衡量Xt, Xt-1, Xt-2,...Xt-n間的關係，此性質叫 autocorrelation，
+表示時間序列資料與前筆資料的相關性程度。
+而最常用來檢視時間序列記錄關係性的功能就是 ACF (autocorrelation function) 了，
+用 ACF 可以來判斷這個時間序列資料是否有 stationarity 或 seasonality 的性質。
+如果前 N 個（ex:24） laged value 都高於 statistically significant 定值，
+有高度相關的關係，也因為有著高度相關的關係所以該時間序列為 non-stationary。
+
+resource: https://medium.com/@rofLin/%E8%A7%A3%E6%9E%90%E6%99%82%E9%96%93%E5%BA%8F%E5%88%97%E7%9A%84%E9%80%B1%E6%9C%9F%E6%80%A7%E8%AE%8A%E5%8B%95-seasonal-decomposition-8ced646fc26b
+- seasonal_decompose
+這是一個常見的處理time series data的手法。
+就是將隨著時間變動的追蹤資料分離為趨勢、週期性變動及殘差項(Residual)這三者的方法。
+(一)趨勢(trend): 影響時間序列長期走勢的基本動因.
+(二)週期性變動(seasonality): 造成定期性規律波動的影響變因.
+(三)殘差項(Residual): 無法用以上二種因素解釋的變因.
+Decomposition assumes additive or multiplicative seasonality—which may not always be the case.
+也就是說decomposition背後的假設有兩種，
+第1種additive是假設實際數據是由上面三項相加而成、具有線性的關係
+第2種multiplicative是假設實際數據是由上面三項相乘、具有非線性的關係
+It's most useful for visually inspecting seasonality, but it doesn’t confirm stationarity like the ADF test.
+For a multivariate time series (ex: 10 blocks), we would need to apply it separately for each block, making it computationally expensive.
+
+
+
+
+
